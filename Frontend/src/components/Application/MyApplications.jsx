@@ -25,7 +25,8 @@ const MyApplications = () => {
             .then((res) => {
               setApplications(res.data.applications);
             });
-        } else {
+        }
+        if (user && user.role === "Job Seeker") {
           await axios
             .get("http://localhost:8000/api/v1/application/jobseeker/getall", {
               withCredentials: true,
@@ -115,6 +116,7 @@ const MyApplications = () => {
           )}
         </div>
       )}
+      
       {modalOpen && <ResumeModal imageUrl={resumeUrl} onClose={closeModal} />}
     </section>
   );

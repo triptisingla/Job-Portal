@@ -8,7 +8,7 @@ const ResumeModal = ({ imageUrl, onClose }) => {
           <span className="close" onClick={onClose}>
             &times;
           </span>
-          <object data={imageUrl} type="application/pdf" width="100%" height="100%" />
+          <object data={imageUrl} type="application/pdf" width="100%" height="100%"/>
         </div>
       </div>
     </>
