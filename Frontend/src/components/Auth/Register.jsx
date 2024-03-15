@@ -121,7 +121,7 @@ const Register = () => {
               <label htmlFor="password">Password</label>
               <div>
                 <input
-                  type="text"
+                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
