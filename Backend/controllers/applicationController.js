@@ -24,7 +24,7 @@ export const employerGetAllApplications = catchAsyncError(async (req, res, next)
 
 export const jobseekerGetAllApplications = catchAsyncError(async (req, res, next) => {
     const { role } = req.user;
-
+    console.log("in getall route");
     if (role === "Employer") {
         return next(new ErrorHandler("Employer is not allowed to access this resource!", 400));
     }

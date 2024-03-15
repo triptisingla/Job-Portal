@@ -54,7 +54,7 @@ export const login = catchAsyncError(async (req, res, next) => {
     if (user.role !== role) {
         return next(new ErrorHandler("User with this role not found.", 400));
     }
-    sendToken(user, 200, res, "User logged in siccessfully!");
+    sendToken(user, 200, res, "User logged in successfully!");
 
 })
 
