@@ -4,7 +4,7 @@ import { catchAsyncError } from "./catchAsyncError.js";
 import ErrorHandler from "./errors.js";
 
 export const isAuthorized = catchAsyncError(async (req, res, next) => {
-    const { token } = req.cookies;
+    const { token } = req;
     console.log(token);
     if (!token) {
         return next(new ErrorHandler("User not authorized", 400));
