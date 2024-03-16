@@ -21,7 +21,7 @@ const app = express();
 
 dotenv.config({ path: './config/config.env' })
 app.use(cors({
-    origin: "https://triptisingla.github.io",
+    origin: "https://imaginative-blini-abc811.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }))
