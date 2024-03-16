@@ -34,12 +34,12 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/application/jobseeker/postapplication",
+        "https://scarlet-hatchling-kit.cyclic.app/api/v1/application/jobseeker/postapplication",
         formData,
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "multipart/form-data",
+            token: localStorage.getItem('token'),
           },
         }
       );

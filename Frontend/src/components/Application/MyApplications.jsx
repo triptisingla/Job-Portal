@@ -19,8 +19,11 @@ const MyApplications = () => {
       try {
         if (user && user.role === "Employer") {
           await axios
-            .get("http://localhost:8000/api/v1/application/employer/getall", {
+            .get("https://scarlet-hatchling-kit.cyclic.app/api/v1/application/employer/getall", {
               withCredentials: true,
+              headers: {
+                token: localStorage.getItem('token'),
+              },
             })
             .then((res) => {
               setApplications(res.data.applications);
@@ -28,8 +31,11 @@ const MyApplications = () => {
         }
         if (user && user.role === "Job Seeker") {
           await axios
-            .get("http://localhost:8000/api/v1/application/jobseeker/getall", {
+            .get("https://scarlet-hatchling-kit.cyclic.app/api/v1/application/jobseeker/getall", {
               withCredentials: true,
+              headers: {
+                token: localStorage.getItem('token'),
+              },
             })
             .then((res) => {
               setApplications(res.data.applications);
@@ -49,8 +55,11 @@ const MyApplications = () => {
   const deleteApplication = async (id) => {
     try {
       await axios
-        .delete(`http://localhost:8000/api/v1/application/delete/${id}`, {
+        .delete(`https://scarlet-hatchling-kit.cyclic.app/api/v1/application/delete/${id}`, {
           withCredentials: true,
+          headers: {
+            token: localStorage.getItem('token'),
+          },
         })
         .then((res) => {
           toast.success(res.data.message);

@@ -12,18 +12,21 @@ const JobDetails = () => {
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:8000/api/v1/job/${id}`, {
+        .get(`https://scarlet-hatchling-kit.cyclic.app/api/v1/job/${id}`, {
           withCredentials: true,
+          headers: {
+            token: localStorage.getItem('token'),
+          },
         })
         .then((res) => {
           setJob(res.data.job);
         })
-        .catch(error=>{
-          navigateTo('/notfound');
+        .catch((error) => {
+          navigateTo("/notfound");
         });
     } catch (error) {
       console.log(error.message);
-      navigateTo('/notfound')
+      navigateTo("/notfound");
     }
   }, []);
 

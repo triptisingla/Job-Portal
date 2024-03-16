@@ -7,7 +7,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
+        "https://scarlet-hatchling-kit.cyclic.app/api/v1/user/login",
         { email, password, role },
         {
           withCredentials: true,
@@ -29,13 +28,18 @@ const Login = () => {
         }
       );
 
+      localStorage.setItem("token", data.token);
+
+      console.log("here",localStorage.getItem('token'));
+      // console.log(document.cookie.get('token'));
+      // Cookies.set("token", data.token);
       toast.success(data.message);
       setEmail("");
       setPassword("");
       setRole("");
       setIsAuthorized(true);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -101,7 +105,6 @@ const Login = () => {
           </form>
         </div>
         <div className="banner">
-          
           <img src="/imagelogin.png" alt="login" />
         </div>
       </section>

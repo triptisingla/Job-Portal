@@ -24,8 +24,13 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/user/getuser",
-          { withCredentials: true }
+          "https://scarlet-hatchling-kit.cyclic.app/api/v1/user/getuser",
+          {
+            withCredentials: true,
+            headers: {
+              token: localStorage.getItem('token'),
+            },
+          }
         );
         console.log(response.data.user);
         setUser(response.data.user);

@@ -32,7 +32,7 @@ const PostJob = () => {
     }
     await axios
       .post(
-        "http://localhost:8000/api/v1/job/post",
+        "https://scarlet-hatchling-kit.cyclic.app/api/v1/job/post",
         fixedSalary.length >= 4
           ? {
               title,
@@ -58,7 +58,7 @@ const PostJob = () => {
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "application/json",
+            token: localStorage.getItem('token'),
           },
         }
       )

@@ -10,8 +10,11 @@ const Jobs = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:8000/api/v1/job/getall", {
+        .get("https://scarlet-hatchling-kit.cyclic.app/api/v1/job/getall", {
           withCredentials: true,
+          headers: {
+            token: localStorage.getItem('token'),
+          },
         })
         .then((res) => {
           setJobs(res.data);
