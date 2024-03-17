@@ -19,7 +19,12 @@ const MyJobs = () => {
       try {
         const { data } = await axios.get(
           "https://scarlet-hatchling-kit.cyclic.app/api/v1/job/getmyjobs",
-          { withCredentials: true }
+          {
+            withCredentials: true,
+            headers: {
+              token: localStorage.getItem("token"),
+            },
+          }
         );
         setMyJobs(data.myJobs);
       } catch (error) {
@@ -48,12 +53,16 @@ const MyJobs = () => {
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
-      .put(`https://scarlet-hatchling-kit.cyclic.app/api/v1/job/update/${jobId}`, updatedJob, {
-        withCredentials: true,
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-      })
+      .put(
+        `https://scarlet-hatchling-kit.cyclic.app/api/v1/job/update/${jobId}`,
+        updatedJob,
+        {
+          withCredentials: true,
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
         setEditingMode(null);
@@ -65,10 +74,16 @@ const MyJobs = () => {
 
   //Function for deleteing a job
   const handleJobDelete = async (jobId) => {
-    await axios.delete(
-      `https://scarlet-hatchling-kit.cyclic.app/api/v1/job/delete/${jobId}`,
-      { withCredentials: true }
-    )
+    await axios
+      .delete(
+        `https://scarlet-hatchling-kit.cyclic.app/api/v1/job/delete/${jobId}`,
+        {
+          withCredentials: true,
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
         setMyJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
@@ -342,7 +357,7 @@ const MyJobs = () => {
                           )}
                         </div>
                         <button
-                          onClick={()=>handleJobDelete(element._id)}
+                          onClick={() => handleJobDelete(element._id)}
                           className="delete_btn"
                         >
                           DELETE
