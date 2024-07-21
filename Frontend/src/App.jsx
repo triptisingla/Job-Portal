@@ -24,7 +24,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://scarlet-hatchling-kit.cyclic.app/api/v1/user/getuser",
+          "https://jobber-jobs-for-you.onrender.com/api/v1/user/getuser",
           {
             withCredentials: true,
             headers: {

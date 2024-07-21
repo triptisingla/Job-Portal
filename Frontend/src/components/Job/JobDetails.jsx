@@ -12,7 +12,7 @@ const JobDetails = () => {
   useEffect(() => {
     try {
       axios
-        .get(`https://scarlet-hatchling-kit.cyclic.app/api/v1/job/${id}`, {
+        .get(`https://jobber-jobs-for-you.onrender.com/api/v1/job/${id}`, {
           withCredentials: true,
           headers: {
             token: localStorage.getItem('token'),

@@ -34,7 +34,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "https://scarlet-hatchling-kit.cyclic.app/api/v1/application/jobseeker/postapplication",
+        "https://jobber-jobs-for-you.onrender.com/api/v1/application/jobseeker/postapplication",
         formData,
         {
           withCredentials: true,

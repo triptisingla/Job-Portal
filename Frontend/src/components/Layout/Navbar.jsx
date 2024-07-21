@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "https://scarlet-hatchling-kit.cyclic.app/api/v1/user/logout",
+        "https://jobber-jobs-for-you.onrender.com/api/v1/user/logout",
         {
           withCredentials: true,
           headers: {

@@ -32,7 +32,7 @@ const PostJob = () => {
     }
     await axios
       .post(
-        "https://scarlet-hatchling-kit.cyclic.app/api/v1/job/post",
+        "https://jobber-jobs-for-you.onrender.com/api/v1/job/post",
         fixedSalary.length >= 4
           ? {
               title,

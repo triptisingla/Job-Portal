@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://scarlet-hatchling-kit.cyclic.app/api/v1/user/register",
+        "https://jobber-jobs-for-you.onrender.com/api/v1/user/register",
         { name, email, password, phone, role },
         {
           withCredentials: true,

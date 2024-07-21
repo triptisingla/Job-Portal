@@ -18,7 +18,7 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "https://scarlet-hatchling-kit.cyclic.app/api/v1/job/getmyjobs",
+          "https://jobber-jobs-for-you.onrender.com/api/v1/job/getmyjobs",
           {
             withCredentials: true,
             headers: {
@@ -54,7 +54,7 @@ const MyJobs = () => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
       .put(
-        `https://scarlet-hatchling-kit.cyclic.app/api/v1/job/update/${jobId}`,
+        `https://jobber-jobs-for-you.onrender.com/api/v1/job/update/${jobId}`,
         updatedJob,
         {
           withCredentials: true,
@@ -76,7 +76,7 @@ const MyJobs = () => {
   const handleJobDelete = async (jobId) => {
     await axios
       .delete(
-        `https://scarlet-hatchling-kit.cyclic.app/api/v1/job/delete/${jobId}`,
+        `https://jobber-jobs-for-you.onrender.com/api/v1/job/delete/${jobId}`,
         {
           withCredentials: true,
           headers: {

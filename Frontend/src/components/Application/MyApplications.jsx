@@ -19,7 +19,7 @@ const MyApplications = () => {
       try {
         if (user && user.role === "Employer") {
           await axios
-            .get("https://scarlet-hatchling-kit.cyclic.app/api/v1/application/employer/getall", {
+            .get("https://jobber-jobs-for-you.onrender.com/api/v1/application/employer/getall", {
               withCredentials: true,
               headers: {
                 token: localStorage.getItem('token'),
@@ -31,7 +31,7 @@ const MyApplications = () => {
         }
         if (user && user.role === "Job Seeker") {
           await axios
-            .get("https://scarlet-hatchling-kit.cyclic.app/api/v1/application/jobseeker/getall", {
+            .get("https://jobber-jobs-for-you.onrender.com/api/v1/application/jobseeker/getall", {
               withCredentials: true,
               headers: {
                 token: localStorage.getItem('token'),
@@ -55,7 +55,7 @@ const MyApplications = () => {
   const deleteApplication = async (id) => {
     try {
       await axios
-        .delete(`https://scarlet-hatchling-kit.cyclic.app/api/v1/application/delete/${id}`, {
+        .delete(`https://jobber-jobs-for-you.onrender.com/api/v1/application/delete/${id}`, {
           withCredentials: true,
           headers: {
             token: localStorage.getItem('token'),
